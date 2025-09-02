@@ -9,39 +9,49 @@ import time # Importa o módulo time para criar um pequeno delay e dar mais dina
 lista_jogadas = ['PEDRA', 'PAPEL', 'TESOURA']
 # Lista com as opções possíveis de jogadas
 
-jogada = input("Escolha entre PEDRA, PAPEL ou TESOURA: ").upper()
+while True:
+
+  jogada = input("Escolha entre PEDRA, PAPEL ou TESOURA: ").upper()
 # Solicita a escolha do usuário e converte para maiúsculas para padronizar
 
-while jogada not in lista_jogadas:
-    jogada = input("Jogada inválida! Escolha entre PEDRA, PAPEL ou TESOURA: ").upper()
+  while jogada not in lista_jogadas:
+      jogada = input("Jogada inválida! Escolha entre PEDRA, PAPEL ou TESOURA: ").upper()
     # Mantém pedindo até que seja digitada uma jogada válida
 
-print("JO")
-time.sleep(0.5) # Pausa de meio segundo
-print("KEN")
-time.sleep(0.5)
-print("PÔ!")
-time.sleep(0.5)
+  print("JO")
+  time.sleep(0.5) # Pausa de meio segundo
+  print("KEN")
+  time.sleep(0.5)
+  print("PÔ!")
+  time.sleep(0.5)
 
-print(f"Você escolheu {jogada}")
+  print(f"Você escolheu {jogada}")
 # Mostra a escolha do usuário
 
-jogada_bot = random.choice(lista_jogadas)
+  jogada_bot = random.choice(lista_jogadas)
 # Seleciona aleatoriamente a jogada do computador
 
-print(f"O computador escolhe {jogada_bot}")
+  print(f"O computador escolhe {jogada_bot}")
 # Mostra a escolha do computador
 
-if jogada == jogada_bot:
-    print('EMPATE!')
+  if jogada == jogada_bot:
+      print('EMPATE!')
     # Verifica se houve empate
 
-elif (jogada == 'PEDRA' and jogada_bot == 'TESOURA') or \
-     (jogada == 'TESOURA' and jogada_bot == 'PAPEL') or \
-     (jogada == 'PAPEL' and jogada_bot == 'PEDRA'):
-    print("Você VENCEU!!!")
+  elif (jogada == 'PEDRA' and jogada_bot == 'TESOURA') or \
+       (jogada == 'TESOURA' and jogada_bot == 'PAPEL') or \
+       (jogada == 'PAPEL' and jogada_bot == 'PEDRA'):
+      print("Você VENCEU!!!")
     # Condições em que o usuário vence
 
-else:
-    print("Você PERDEU :/")
+  else:
+      print("Você PERDEU :/")
     # Se não for empate nem vitória, o usuário perde
+
+
+# Jogo irá rodar novamente, caso o jogador deseje
+
+  resposta = input("Deseja jogar novamente? (S/N): ").upper()
+  if resposta == "N":
+     print("Obrigado por jogar. Até mais!")
+     break
